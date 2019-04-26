@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.Extensions.Logging;
-using Uno.Extensions;
+//using Microsoft.Extensions.Logging;
+//using Uno.Extensions;
 
 namespace SkiaSharp
 {
@@ -50,7 +50,7 @@ namespace SkiaSharp
 
 	public class SKBitmap : SKObject
 	{
-		private static readonly ILogger _log = typeof (TSInteropMarshaller).Log ();
+		//private static readonly ILogger _log = typeof (TSInteropMarshaller).Log ();
 
 		private const string UnsupportedColorTypeMessage = "Setting the ColorTable is only supported for bitmaps with ColorTypes of Index8.";
 		private const string UnableToAllocatePixelsMessage = "Unable to allocate pixels for the bitmap.";
@@ -539,16 +539,16 @@ namespace SkiaSharp
 			var bitmap = new SKBitmap (bitmapInfo);
 			var result = codec.GetPixels (bitmapInfo, bitmap.GetPixels (out var length));
 			if (result != SKCodecResult.Success && result != SKCodecResult.IncompleteInput) {
-				if (_log.IsEnabled (LogLevel.Error)) {
-					_log.LogError ($"Decode failed: {result}");
-				}
+				//if (_log.IsEnabled (LogLevel.Error)) {
+				//	_log.LogError ($"Decode failed: {result}");
+				//}
 
 				bitmap.Dispose ();
 				bitmap = null;
 			}
-			if (_log.IsEnabled (LogLevel.Error)) {
-				_log.LogError ("Decode sucess");
-			}
+			//if (_log.IsEnabled (LogLevel.Error)) {
+			//	_log.LogError ("Decode sucess");
+			//}
 			return bitmap;
 		}
 
